@@ -1,0 +1,89 @@
+\documentclass[12pt,pdftex,a4paper,parskip=half]{scrbook} % Haupteinstellungen
+\usepackage{ngerman} % Deutsche Sprachdatei
+\usepackage[utf8]{inputenc} % Deutsche Umlaute
+\usepackage[T1]{fontenc} % Schriftart
+\usepackage{graphicx} % Grafiken einbinden
+\usepackage{amsmath, amsthm, amssymb} % Mathematische Formeln
+\usepackage{mathtools} % Mathematische Formeln
+\usepackage{setspace} % Zeilenabstand
+\usepackage{lmodern} % Vektorschriftart Modern
+\usepackage{url} % Trennung URLs
+\usepackage{acronym} % Abkürzungsverzeichnis
+\usepackage{listings} % Code
+\usepackage{booktabs} % Schöne Tabellen
+\usepackage{tabularx} % Tabellen
+\usepackage{scrhack} % Deprecated Methoden unterdrücken
+\usepackage[backend=biber]{biblatex} % Gebraucht für BibStyle
+\DeclareNameAlias{default}{last-first/first-last} % Erst Nachname im Literaturverzeichnis
+
+\addbibresource{bib/Literatur.bib}
+
+\newenvironment{itemize*}%
+  {\begin{itemize}%
+    \setlength{\itemsep}{2pt}%
+    \setlength{\parskip}{2pt}}%
+  {\end{itemize}}
+  
+\newenvironment{enumerate*}%
+  {\begin{enumerate}%
+    \setlength{\itemsep}{2pt}%
+    \setlength{\parskip}{2pt}}%
+  {\end{enumerate}}
+
+\deffootnote{1em}{1em}{ %Einrueckung der Fussnoten wird korrigiert
+	\textsuperscript{\thefootnotemark\ }
+}
+
+\lstset{%
+	language=[LaTeX]TeX,     % Sprache des Quellcodes ist TeX
+	stepnumber=1,            % Jede Zeile nummerieren.
+	numbersep=5pt,           % 5pt Abstand zum Quellcode
+	numberstyle=\tiny,       % Zeichengrösse 'tiny' für die Nummern.
+	breaklines=true,         % Zeilen umbrechen wenn notwendig.
+	breakautoindent=true,    % Nach dem Zeilenumbruch Zeile einrücken.
+	postbreak=\space,        % Bei Leerzeichen umbrechen.
+	tabsize=2,               % Tabulatorgrösse 2
+	basicstyle=\ttfamily\footnotesize, % Nichtproportionale Schrift, klein für den Quellcode
+	showspaces=false,        % Leerzeichen nicht anzeigen.
+	showstringspaces=false,  % Leerzeichen auch in Strings ('') nicht anzeigen.
+	extendedchars=true      % Alle Zeichen vom Latin1 Zeichensatz anzeigen.
+} % Hintergrundfarbe des Quellcodes setzen.
+
+%Trennung von Wörtern
+\hyphenation{Such-er-geb-nis-se}
+\hyphenation{Such-er-geb-nis-sen}
+
+\pdfminorversion 6 % PDF-Version 1.6
+\onehalfspacing % Zeilenabstand 1,5
+
+\begin{document}
+\pagestyle{plain} % Keine Kopfzeilen
+\input{Titelseite} % Titelseite
+\input{Erklaerung} % Eidesstattliche Erklärung
+\input{Vorwort} % Vorwort
+\input{Abstract} % Abstract\tableofcontents % Inhaltsverzeichnis
+\clearpage % Neue Seite
+\input{Abkuerzungsverzeichnis} % Abkürzungsverzeichnis
+\cleardoublepage % Neue Seite
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis} % Überschrift Abbildungsverzeichnis
+\listoffigures % Abbildungsverzeichnis
+\cleardoublepage % Neue Seite
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis} % Überschrift Tabellenverzeichnis
+\listoftables % Tabellenverzeichnis
+\tableofcontents % Inhaltsverzeichnis
+\input{Kapitel1}
+\input{Kapitel2}
+\input{Kapitel3}
+\input{Kapitel4}
+\input{Kapitel5}
+\input{Kapitel6}
+\input{Kapitel7}
+\cleardoublepage
+
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\printbibliography[title=Literaturverzeichnis]
+
+\appendix
+\input{Anhang}
+
+\end{document}
