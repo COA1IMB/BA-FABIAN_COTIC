@@ -79,15 +79,63 @@ Eine entsprechende Überwachungsumgebung müsste all diese Daten sammeln und auf
 \section{Machine Learning}
 \label{sec:Machine_Learning2}
 
-\emph{Machine Learning} (ML) ist eines der zentralen Themengebiete innerhalb der  \emph{Künstlichen Intelligenz} (KI) \cite[vgl. S. 2082]{JW12} und beschreibt das Forschungsgebiet das Computer befähigt zu lernen, ohne explizit dafür programmiert worden zu sein \cite[vgl. S. 1]{AM14}. Lernen im Kontext von ML definieren Mitchell et al. als: ''A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E'' \cite{MT97}. Soll beispielsweise ein Programm implementiert werden, das aufgrund vergangener Banktransaktionen (Experience E) lernen soll wie man betrügerische Banktransaktionen erkennt (Task T), benötigen die Datensätze der Banktransaktionen ein weiteres Attribut, das angibt ob sich die Transaktion als Betrug, oder echt erwiesen hat (Performance P).        Der Zusammenhang zwischen Ursache und Wirkung soll mit Hilfe eines Models beschrieben werden. Das Modell soll aus den Erfahrungen der Vergangenheit auf Ergebnisse in der Zukunft schließen können. Dabei wird versucht Eingabe- auf Ausgabewerte abzubilden, so dass die Differenz zwischen dem vorhergesagt Wert und dem realen Wert möglichst klein ist \cite[vgl. S. 68]{EM17}. 
+\emph{Machine Learning} (ML) ist eines der zentralen Themengebiete innerhalb der  \emph{Künstlichen Intelligenz} (KI) \cite[vgl. S. 2082]{JW12} und beschreibt das Forschungsgebiet das Computer befähigt zu lernen, ohne explizit dafür programmiert worden zu sein \cite[vgl. S. 1]{AM14}. Lernen im Kontext von ML definieren Mitchell et al. als: ''A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E'' \cite{MT97}. Soll beispielsweise ein Programm implementiert werden, das aufgrund vergangener Banktransaktionen (Experience E) lernen soll wie man betrügerische Banktransaktionen erkennt (Task T), wird das Programm, nach erfolgreichem Lernen, besser darin sein betrügerische Banktransaktionen zu erkennen (Performance P). Der Zusammenhang zwischen Ursache und Wirkung soll mit Hilfe eines Modells beschrieben werden. Das Modell soll aus den Erfahrungen der Vergangenheit auf Ergebnisse in der Zukunft schließen können. Dabei wird versucht Eingabe- auf Ausgabewerte abzubilden, so dass die Differenz zwischen dem vorhergesagt Wert und dem realen Wert möglichst klein ist \cite[vgl. S. 68]{EM17}. Abbildung \ref{fig:lernprozess} veranschaulicht den Lernvorgang.   
+
+\begin{figure}[ht]
+\centering
+\includegraphics{images/lernprozess.pdf}
+\caption{Vorgehensweise zur Entwickelung eines Modells.}
+\label{fig:lernprozess}
+\end{figure}  
+
+Die Banktransaktionen die die Trainingsdaten bilden, besitzen verschiedene Attribute die im Kontext von ML \emph{Features} genannt werden. Neben den Attributen die die Banktransaktion beschreiben, besitzen die Trainingsdatensätze ein \emph{Label}. Das Label bildet die Erfahrung aus der gelernt werden soll. Im vorliegenden Beispiel wäre das Label ein boolescher Wert, der angibt ob die vorliegende Banktransaktion betrügerisch war oder nicht. Tabelle \ref{tab:trainingset} zeigt den beispielhaften Aufbau der Trainingsdaten.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{cccc}
+\toprule
+\ Feature 1 & Feature 2 & Feature 3 & Label\\
+\toprule
+0.86743 & 0.123 & 0.34657 & 1\\\midrule
+0.26926 & 0.756 & 0.93095 & 0\\\midrule
+... & ... & ... & ...\\\bottomrule
+\end{tabular}
+\caption{Beispielhafter Aufbau der Trainingsdaten.}
+\label{tab:trainingset}
+\end{table}
+
 
 Abhängig von der zugrundeliegenden Problemstellung, wird zwischen verschiedenen Lernprinzipien unterschieden:    
 
-\begin{enumerate*}
-\item Supervised Learning: 
-\item Unsupervised Learning: 
-\item Reinforcement learning:
-\end{enumerate*}    
+\begin{itemize*}
+\item \emph{Supervised-Learning}: Die Lerndatensätze bestehen aus Features und Labels. Das Modell wird trainiert, in dem man ihm vorgibt, wie Klassen richtig zugeordnet oder Werte richtig berechnet werden \cite[vgl. S. 68]{EM17}. 
+\item \emph{Unsupervised-Learning}: Die Lerndatensätze besitzen keine Labels. Der Lern-Algorithmus versucht nur anhand der Features Strukturen abzuleiten, wodurch dann das Modell gebildet wird \cite[]{SG17, EM17}. 
+\item \emph{Semi-Supervised-Learning}: Eine Mischform zwischen Supervised-Learning und Unsupervised-Learning, wobei manche Trainingsdatensätze Labels besitzen können und andere nicht \cite[vgl. S. 892]{ZH10}. 
+\item \emph{Reinforcement-Learning}: Das Reinforcement-Learning basiert darauf das ein Agent lernt wie er sich in einer bestimmten Umgebung verhalten soll, in dem er eine Belohnung beziehungsweise eine Strafe in Form eines Skalars bekommt, der angibt wie gut oder schlecht sich der Agent verhalten hat \cite[vgl. S. 5]{WO12}.  
+\end{itemize*}    
+
+Über die Lernprinzipien hinaus, kann die Problemstellung noch in weitere Aspekte eingeteilt werden, die helfen das richtige ML-Verfahren für eine Problemstellung zu finden:
+
+\begin{itemize*}
+
+\item \emph{Klassifikation}: Bisher unbekannte Features sollen einer Klasse zugewiesen werden. 
+\begin{itemize*}
+\item Beispiel 1: Katzenfotos sollen von Hundefotos unterschieden werden.
+\item Beispiel 2: Auf MRT-Bildern von Lungen soll erkannt werden, ob ein Tumor bös- oder gutartig ist.
+\end{itemize*}
+\item \emph{Regression}: Bestimmung eines numerischen Wertes für einen gegebenen Datensatz.   
+\begin{itemize*}
+\item Beispiel 1: Preisberechnung eines Gebrauchtwaagens.  
+\item Beispiel 2: Vorhersage der verbleibenden Lebensdauer eines Motors.
+\end{itemize*}
+\item \emph{Clustering}:  
+\begin{itemize*}
+\item Beispiel 1: Smartphone Fotoalben die Gesichter analysieren und Fotos nach Personen gruppieren.  
+\item Beispiel 2: Analysieren von Kundendaten zur Gruppierung verschiedener Kundenklassen, für gezielte Marketingkampagnen. 
+\end{itemize*}
+
+\end{itemize*}   
 
 ..................................................................
 ..................................................................
