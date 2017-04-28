@@ -105,8 +105,7 @@ Die Banktransaktionen die die Trainingsdaten bilden, besitzen verschiedene Attri
 \label{tab:trainingset}
 \end{table}
 
-
-Abhängig von der zugrundeliegenden Problemstellung, wird zwischen verschiedenen Lernprinzipien unterschieden:    
+Abhängig von der zugrundeliegenden Problemstellung, gibt es mehrere Verfahren zur Modellbildung. Zur Auswahl eines geeigneten Lern-Algorithmus, muss die Problemstellung und die vorhandenen Daten validiert und einem der folgenden Verfahren zugeordnet werden:  
 
 \begin{itemize*}
 \item \emph{Supervised-Learning}: Die Lerndatensätze bestehen aus Features und Labels. Das Modell wird trainiert, in dem man ihm vorgibt, wie Klassen richtig zugeordnet oder Werte richtig berechnet werden \cite[vgl. S. 68]{EM17}. 
@@ -115,27 +114,51 @@ Abhängig von der zugrundeliegenden Problemstellung, wird zwischen verschiedenen
 \item \emph{Reinforcement-Learning}: Das Reinforcement-Learning basiert darauf das ein Agent lernt wie er sich in einer bestimmten Umgebung verhalten soll, in dem er eine Belohnung beziehungsweise eine Strafe in Form eines Skalars bekommt, der angibt wie gut oder schlecht sich der Agent verhalten hat \cite[vgl. S. 5]{WO12}.  
 \end{itemize*}    
 
-Über die Lernprinzipien hinaus, kann die Problemstellung noch in weitere Aspekte eingeteilt werden, die helfen das richtige ML-Verfahren für eine Problemstellung zu finden:
+Über die Lernverfahren hinaus, müssen auch die zu berechnenden Ergebnisse der Problemstellung klassifiziert werden, um einen geeigneten Algorithmus zu finden:
 
 \begin{itemize*}
 
-\item \emph{Klassifikation}: Bisher unbekannte Features sollen einer Klasse zugewiesen werden. 
+\item \emph{Klassifikation}: Unbekannte Eingabedaten werden einer Klasse zugeordnet \cite [vgl. S. 68]{EM17}. 
 \begin{itemize*}
 \item Beispiel 1: Katzenfotos sollen von Hundefotos unterschieden werden.
 \item Beispiel 2: Auf MRT-Bildern von Lungen soll erkannt werden, ob ein Tumor bös- oder gutartig ist.
 \end{itemize*}
-\item \emph{Regression}: Bestimmung eines numerischen Wertes für einen gegebenen Datensatz.   
+\item \emph{Regression}: Bestimmung eines numerischen Wertes für einen gegebenen EIngabedatensatz \cite {SG17}.   
 \begin{itemize*}
 \item Beispiel 1: Preisberechnung eines Gebrauchtwaagens.  
 \item Beispiel 2: Vorhersage der verbleibenden Lebensdauer eines Motors.
 \end{itemize*}
-\item \emph{Clustering}:  
+\item \emph{Clustering}: Beschreibt das Gruppieren von Objekten in verschiedene Gruppen. Die Datensätze einer einzelnen Untergruppe sind sich sehr ähnlich in ihren Eigenschaften, wobei die Datensätze der verschiedenen Untergruppen sehr unterschiedlich in ihren Eigenschaften sind \cite {SG17}.   
 \begin{itemize*}
 \item Beispiel 1: Smartphone Fotoalben die Gesichter analysieren und Fotos nach Personen gruppieren.  
 \item Beispiel 2: Analysieren von Kundendaten zur Gruppierung verschiedener Kundenklassen, für gezielte Marketingkampagnen. 
 \end{itemize*}
 
 \end{itemize*}   
+
+Definitionen 
+
+Forschungs-Historie
+
+Herkunft Menschliches Hirn  
+
+Aufbau der Synapse
+
+Aufbau eines Perceptrons 
+
+Aufbau eines neuronalen Netzes mit Beispiel erklären 
+
+Lernalgorithmus (nicht im Detail ...)
+Ein Netz lernt hauptsächlich durch Modifikation der Gewichte der Neuronen.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics{images/perceptron.pdf}
+\caption{Vorgehensweise zur Entwickelung eines Modells.}
+\label{fig:perceptron}
+\end{figure}
+
 
 ..................................................................
 ..................................................................
@@ -172,55 +195,3 @@ Abhängig von der zugrundeliegenden Problemstellung, wird zwischen verschiedenen
 - Deeplearning4j
 - Appache Spark
 
-DELETED:
-
-Decision Management Systeme (DMS) wurden entwickelt, um diesem Bedürfnis nachzukommen, mit dem Anspruch gleichzeitig agil, analytisch und adaptiv zu sein \cite[vgl. S. 1]{JT12}. \textit{Agil}, damit DMS anpassungsfähig auf sich ständig ändernde Regulationen und Marktbedingungen bleibt \cite[vgl. S. 4]{JT11}. \textit{Analytisch}, indem Entscheidungen modelliert werden, die mit Hilfe von Analyse- und Visualisierungstools optimiert werden, damit Entscheidungen analytisch getroffen werden \cite[vgl. S. 8]{JT11}. \textit{Adaptiv}, indem DMS es ermöglichen, neue Ansätze zu erlernen und zu testen, um Geschäftsziele durch neue Herangehensweisen zu erreichen \cite[vgl. S. 15]{JT11}. Taylor behauptet \cite[vgl. S. 1]{JT12}, dass traditionelle Informationssysteme zu unflexibel sind, um den Anforderungen von Verbrauchern, Aufsichtsbehörden und denen des Marktes nachzukommen. Aus diesem Grund werden die zu verbessernde Entscheidungen in dieser Arbeit in einem DMS modelliert und ausgeführt. 
-
-Wichtig zu beachten ist, dass die Verwendung von BKM zur Kapselung von Fachwissen nicht zwingend notwendig ist. Das Kapseln von Fachwissen kann je nach Modellier-Still über ein BKM oder direkt in die Entscheidung hinein erfolgen. Entscheidungen dürfen somit mit keinem, oder beliebig vielen BKM verbunden werden \cite[vgl. S. 60]{OM16}.
-
-Bei der Implementierung eines Decision Management Systems ist der wichtigste Schritt \cite[vgl. S. 115]{JT11}, dass ein Decision Service als IT-Komponente gebaut wird, der einerseits die gewünschte Entscheidung liefert und andererseits in die bestehenden Systemlandschaften integriert werden kann. Der Decision Service sollte also stets dem Konzept der Service-Oriented-Architecture (SOA) gerecht werden. Allerdings sollte nicht jede Entscheidung innerhalb eines DRDs als DS implementiert werden, sondern nur High-Level Entscheidungen die auch außerhalb des DMS von anderen Prozessen, Events oder Systemen benötigt werden \cite[vgl. S. 116]{JT11}. Eine konkrete Implementierung könnte so aussehen, dass ein DRD sowie die darunter liegende Entscheidungslogik mittels eines DMN-Tools modelliert wird. DMN-Tools bieten Programmierschnittstellen, über die die Entscheidungen angesteuert werden können. Um die Kommunikation mit anderen Systemen zu ermöglichen, müsste eine Decision-Engine \cite[vgl. S. 41]{BR16} entwickelt werden, die einerseits die Entscheidung anstößt und darüber hinaus einen Webservice definiert, über den Input-Daten und Entscheidungsausgang kommuniziert werden können. Abbildung zeigt alle Komponenten die zur Implementierung benötigt werden sowie deren Zusammenspiel.
-
-
-Nach der theoretischen Beschreibung von DM und ML, werden einsetzbare Lösungen identifiziert,  die zur Implementierung des Prototypen verwendet werden können. Darüber hinaus wird dieses Kapitel darüber Aufschluss geben, wie diese zwei Grundlagenthemen zusammenhängen (siehe Abbildung \ref{fig:Grundlagenpic}).     
-
-\begin{figure}[ht]
-\centering
-\includegraphics{images/grundlagentheo.pdf}
-\caption{Die theoretischen Grundlagen im Überblick}
-\label{fig:Grundlagenpic}
-\end{figure}
-
-Die Einzelnen Kapitel im Detail erklären .... (Erst möglich nachdem Sie geschrieben wurden)
-
-Zu Beginn dieses Kapitels wurden DMS drei Kerneigenschaften zugesprochen, die maßgeblich für einen erfolgreichen Einsatz sind. Eine Eigenschaft war, dass Entscheidungslogiken unter Verwendung von Statistischen-Modellen optimiert werden. An dieser Stelle soll diese Arbeit untersuchen, ob Machine-Learning-Verfahren verwendet werden können um Entscheidungslogiken zu verbessern. Taylor behauptet Machine-Learning-Verfahren, zur Optimierung von Entscheidungslogik, können nur in den wenigen nachfolgenden Szenarien verwendet werden \cite[vgl. S. 179]{JT11}: 
-
-\begin{enumerate*}
-\item Wenn es innerhalb einer Organisation, keine Fachexperten für Analytics gibt 
-\item Wenn sich Statistische-Modelle so oft ändern, dass nur ein automatisierter Ansatz in Frage kommt
-\item Wenn die Genauigkeit des Statistischen-Modells keinen hohen Stellenwert besitzt
-\item Wenn noch keine historischen Daten gesammelt wurden      
-\end{enumerate*} 
-
-Darüber hinaus behauptet Taylor \cite[vgl. S. 179]{JT11}, dass ML-Verfahren nicht in regulierten Industrien eingesetzt werden können, da sich ML-Modelle nicht erklären lassen, was ein Nachvollziehen einer Entscheidung im Nachhinein unmöglich macht. Diese Problemstellung soll im weiteren Verlauf dieser Arbeit kritisch hinterfragt werden. Zuvor werden jedoch  die Grundlagen von Machine Learning, in Kapitel \ref{sec:Machine_Learning2} erläutert.
-
-Studien wie zeigen dass im Jahr 2016, 84 Prozent der Weltbevölkerung Zugang zu mobilen Breitband-Netzwerken haben. Regierungschefs der G20 Länder, haben sich darauf verständigt, dass die komplette Weltbevölkerung, bis zum Jahr 2025, Zugang zum Internet erhalten soll. Neben der wachsenden Anzahl an Teilnehmern im Internet, wächst auch die Anzahl an Maschinen die mit anderen Maschinen kommunizieren. Einhergehend mit den Teilnehmern im Internet, wächst auch die Anzahl an Diensten die online abgerufen werden können. Der rasante Wachstum der genannten beiden Faktoren resultiert in einem enormen anstieg des Datenvolumens. Studien haben ergeben , dass sich das weltweite Datenvolumen alle zwei Jahre verdoppelt.       
-
-Studie 84% der Weltbevölkerung haben zugang zu einem 3G Breitband Zugang
-http://www.itu.int/en/ITU-D/Statistics/Documents/facts/ICTFactsFigures2016.pdf 
-
-Studie doppeltes Datenvolumen alle 2 Jahre:
-https://www.emc.com/leadership/digital-universe/2014iview/executive-summary.htm
-
-G20
-https://www.heise.de/newsticker/meldung/G20-Laender-streben-Internet-fuer-alle-bis-zum-Jahr-2025-an-3678270.html
-
-IOT:
-http://www.gartner.com/newsroom/id/3165317
-
-Big Data
-
-Supervised 
-
-Unsupervised
-
-Neural Netwrork
