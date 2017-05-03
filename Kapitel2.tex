@@ -136,28 +136,50 @@ Abhängig von der zugrundeliegenden Problemstellung, gibt es mehrere Verfahren z
 
 \end{itemize*}   
 
-Konventionelle Informationssysteme bearbeiten Aufgaben für gewöhnlich schneller als der Mensch. Nicht desto trotz handelt der Mensch in vielen Disziplinen noch ''intelligenter'' als ein Computer, als Beispiel hierfür wäre die Gesichts- und Spracherkennung zu nennen. Daher liegt es nahe, dass Forscher sich am menschlichen Hirn inspirieren lassen beim Versuch intelligente Maschinen zu entwickeln. Die Entwicklung von künstlichen neuronalen Netzen geht zurück in die 40er Jahre, als die notwendigen biologischen und elektrotechnischen Voraussetzungen vorlagen.    
+Konventionelle Informationssysteme bearbeiten Aufgaben für gewöhnlich schneller als der Mensch. Nicht desto trotz handelt der Mensch in vielen Disziplinen noch ''intelligenter'' als ein Computer, als Beispiel hierfür wäre die Gesichts- und Spracherkennung zu nennen. Daher liegt es nahe, dass Forscher sich am menschlichen Hirn inspirieren lassen beim Versuch intelligente Maschinen zu entwickeln. Die Entwicklung von künstlichen neuronalen Netzen geht zurück in die 40er Jahre, als die notwendigen biologischen und elektrotechnischen Voraussetzungen vorlagen \cite [vgl. S. 1]{HS97}. Grundbaustein der menschlichen Intelligenz bilden Neuronen, die über Ein- und Ausgangsverbindungen (Synapsen) mit bis zu 200000 anderen Neuronen verbunden sein können \cite [vgl. S. 5]{SS97}. Das \textit{Perzeptron} ist ein künstliches Neuron, dessen Ursprünge in die 1950er Jahre zurück gehen \cite [vgl. S. 7]{SS97}. Abbildung \ref{fig:perceptron} zeigt ein Perzeptron mit einer einzelnen binären Ausgabe. 
 
-Forschungs-Historie
+\begin{figure}[ht]
+\centering
+\includegraphics{images/perceptron.pdf}
+\caption{Aufbau eines Perzeptrons.}
+\label{fig:perceptron}
+\end{figure}
 
-Herkunft Menschliches Hirn  
+Das Beispiel-Perzeptron besitzt die Inputvariablen \textit{x1}, \textit{x2}, \textit{x3}, die Gewichte \textit{w1}, \textit{w2}, \textit{w3}, sowie den Schwellenwert \textit{s}. Ein Gewicht drückt den Einfluss einer einzelnen Inputvariable auf das Perzeptron aus. Der Ausgabewert ermittelt sich aus der gewichteten Summe $\sum_j w_{j}\times x_{j}$. Wird der Schwellenwert \textit{s} überstiegen, gibt das Perzeptron die eins zurück anderen Falls die null. Formel \ref{formula:perceptroneformula} soll die Arbeitsweise des Perzeptrons nochmals verdeutlichen.      
 
-Aufbau der Synapse
+\begin{align}
+\label{formula:perceptroneformula}
+y = \begin{cases}\text{ }0\text{ }\text{if}\text{ }\sum_j w_{j}\times x_{j}\leq Schwellenwert\\\text{ }1\text{ }\text{if}\text{ }\sum_j w_{j}\times x_{j}> Schwellenwert\end{cases}
+\end{align}
 
-Aufbau eines Perceptrons 
+Abbildung \ref{fig:perceptronNumbered} soll die Funktionsweise des Perzeptrons nochmals mit Hilfe von Beispiel-Werten veranschaulichen. Aus Abbildung \ref{fig:perceptronNumbered} kann der Schwellenwert $s=6$ entnommen werden und mittels Inputvariabeln und Gewichten errechnet sich $\sum_j w_{j}\times x_{j}\text{ = 8}$. Der Schwellenwert des Perzeptrons würde dann überstiegen werden, da $\text{8}>\text{6}$. Aus Formel \ref{formula:perceptroneformula} ergibt sich ein Ausgangswert von 1 für den Fall das $\sum_j w_{j}\times x_{j}> Schwellenwert$.
 
-Aufbau eines neuronalen Netzes mit Beispiel erklären 
+\begin{figure}[ht]
+\centering
+\includegraphics{images/perceptronNumbered.pdf}
+\caption{Aufbau eines Perzeptrons.}
+\label{fig:perceptronNumbered}
+\end{figure}
+
+Neben dem Perzeptron gibt es noch weitere künstliche Neuronen, wie z.B. das Sigmoid Neuron, das einen nummerischen Ausgabewert anstatt eines binären Wertes zurückliefert. Zum Verständnis von neuronalen Netzen, ist die Betrachtung des Perzeptrons an dieser Stelle allerdings genügend. Mit einem einzigen künstlichen Neuron ist es jedoch nicht möglich, komplexere Sachverhalte abzubilden. Erst die Kombination vieler künstlicher Neuronen bilden ein neuronales Netz. Üblicherweise besteht ein künstliches neuronales Netz aus einer Eingabeschicht (\emph{Input-Layer}), einer versteckten Schicht (\emph{Hidden-Layer}) und der Ausgabeschicht (\emph{Output-Layer}). Abbildung \ref{fig:multilayerNN} soll diesen Sachverhalt verdeutlichen. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics{images/multilayerNN.pdf}
+\caption{Aufbau eines neuronalen Netzwerkes mit mehreren Schichten.}
+\label{fig:multilayerNN}
+\end{figure}
+
+Dabei ist die Anzahl der Neuronen in der Hidden-Layer variabel, wohingegen die Input-Layer so viele Neuronen wie Inputvariablen besitzt. Die Anzahl der Neuronen in der Output-Layer ergibt sich durch die Anzahl der insgesamt zu berechnenden Werte des neuronalen Netzes. Soll beispielsweise ein neuronales Netz zur Erkennung von Ziffern in Bildern entwickelt werden, gäbe es zehn Neuronen in der Output-Layer, wobei jedes Neuron eine Ziffer aus dem Bereich null bis neun repräsentiert.    
+
+Durch das Variieren der Gewichte und der Schwellenwerte, ergeben sich Modelle mit denen verschiedene Entscheidungsprozesse abgebildet werden können. Um ein Modell zu entwickeln muss das neuronale Netz lernen (trainiert werden). Im Kontext von neuronalen Netzen versteht man unter Lernen, die Modifikation der Gewichte beziehungsweise der Schwellenwerte. Zur Modifikation dieser Parameter, werden Lern-Algorithmen wie Backpropagation verwendet. Der Backpropagation-Algorithmus wird für Supervised-Learning Problemstellungen verwendet \cite [vgl. S. 89] {EA16}, indem iterativ Datensätze durch das Neuronale-Netz gegeben werden, so dass anhand der Abweichung zwischen berechnetem und tatsächlichem Wert, die Gewichte upgedatet werden.         
+
+
 
 Lernalgorithmus (nicht im Detail ...)
 Ein Netz lernt hauptsächlich durch Modifikation der Gewichte der Neuronen.
 
 
-\begin{figure}[ht]
-\centering
-\includegraphics{images/perceptron.pdf}
-\caption{Funktionsweise eines Perceptrons.}
-\label{fig:perceptron}
-\end{figure}
 
 
 
