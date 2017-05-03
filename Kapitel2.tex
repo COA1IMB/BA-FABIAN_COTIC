@@ -136,7 +136,7 @@ Abhängig von der zugrundeliegenden Problemstellung, gibt es mehrere Verfahren z
 
 \end{itemize*}   
 
-Konventionelle Informationssysteme bearbeiten Aufgaben für gewöhnlich schneller als der Mensch. Nicht desto trotz handelt der Mensch in vielen Disziplinen noch ''intelligenter'' als ein Computer, als Beispiel hierfür wäre die Gesichts- und Spracherkennung zu nennen. Daher liegt es nahe, dass Forscher sich am menschlichen Hirn inspirieren lassen beim Versuch intelligente Maschinen zu entwickeln. Die Entwicklung von künstlichen neuronalen Netzen geht zurück in die 40er Jahre, als die notwendigen biologischen und elektrotechnischen Voraussetzungen vorlagen \cite [vgl. S. 1]{HS97}. Grundbaustein der menschlichen Intelligenz bilden Neuronen, die über Ein- und Ausgangsverbindungen (Synapsen) mit bis zu 200000 anderen Neuronen verbunden sein können \cite [vgl. S. 5]{SS97}. Das \textit{Perzeptron} ist ein künstliches Neuron, dessen Ursprünge in die 1950er Jahre zurück gehen \cite [vgl. S. 7]{SS97}. Abbildung \ref{fig:perceptron} zeigt ein Perzeptron mit einer einzelnen binären Ausgabe. 
+Konventionelle Informationssysteme bearbeiten Aufgaben für gewöhnlich schneller als der Mensch. Nicht desto trotz handelt der Mensch in vielen Disziplinen noch ''intelligenter'' als ein Computer, als Beispiel hierfür ist die Gesichts- und Spracherkennung zu nennen. Daher liegt es nahe, dass Forscher sich am menschlichen Gehirn inspirieren lassen beim Versuch intelligente Maschinen zu entwickeln. Die Entwicklung von künstlichen neuronalen Netzen geht zurück in die 40er Jahre, als die notwendigen biologischen und elektrotechnischen Voraussetzungen vorlagen \cite [vgl. S. 1]{HS97}. Grundbaustein der menschlichen Intelligenz bilden Neuronen, die über Ein- und Ausgangsverbindungen (Synapsen) mit bis zu 200000 anderen Neuronen verbunden sein können \cite [vgl. S. 5]{SS97}. Das \textit{Perzeptron} ist ein künstliches Neuron, das in den 60er Jahren entwickelt wurde \cite [vgl. S. 86]{EA16}. Abbildung \ref{fig:perceptron} zeigt ein Perzeptron. 
 
 \begin{figure}[ht]
 \centering
@@ -145,14 +145,14 @@ Konventionelle Informationssysteme bearbeiten Aufgaben für gewöhnlich schnelle
 \label{fig:perceptron}
 \end{figure}
 
-Das Beispiel-Perzeptron besitzt die Inputvariablen \textit{x1}, \textit{x2}, \textit{x3}, die Gewichte \textit{w1}, \textit{w2}, \textit{w3}, sowie den Schwellenwert \textit{s}. Ein Gewicht drückt den Einfluss einer einzelnen Inputvariable auf das Perzeptron aus. Der Ausgabewert ermittelt sich aus der gewichteten Summe $\sum_j w_{j}\times x_{j}$. Wird der Schwellenwert \textit{s} überstiegen, gibt das Perzeptron die eins zurück anderen Falls die null. Formel \ref{formula:perceptroneformula} soll die Arbeitsweise des Perzeptrons nochmals verdeutlichen.      
+Das Beispiel-Perzeptron besitzt die Inputvariablen \textit{x1}, \textit{x2}, \textit{x3}, die Gewichte \textit{w1}, \textit{w2}, \textit{w3}, sowie den Schwellenwert \textit{s}. Jede Verbindung zwischen zwei Neuronen besitzt ein Gewicht, das den Einfluss eines Neuron A auf ein Neuron B beschreibt \cite [vgl. S. 86]{EA16}. Der Ausgabewert ermittelt sich aus dem Vergleich der gewichteten Summe $\sum_j w_{j}\times x_{j}$ und einem zuvor definiertem Schwellenwert \cite {HS99, LP87, WE16}. Formel \ref{formula:perceptroneformula} \cite {HS99, WE16} zeigt den Vergleich nochmals als mathematischen Ausdruck:
 
 \begin{align}
 \label{formula:perceptroneformula}
 y = \begin{cases}\text{ }0\text{ }\text{if}\text{ }\sum_j w_{j}\times x_{j}\leq Schwellenwert\\\text{ }1\text{ }\text{if}\text{ }\sum_j w_{j}\times x_{j}> Schwellenwert\end{cases}
 \end{align}
 
-Abbildung \ref{fig:perceptronNumbered} soll die Funktionsweise des Perzeptrons nochmals mit Hilfe von Beispiel-Werten veranschaulichen. Aus Abbildung \ref{fig:perceptronNumbered} kann der Schwellenwert $s=6$ entnommen werden und mittels Inputvariabeln und Gewichten errechnet sich $\sum_j w_{j}\times x_{j}\text{ = 8}$. Der Schwellenwert des Perzeptrons würde dann überstiegen werden, da $\text{8}>\text{6}$. Aus Formel \ref{formula:perceptroneformula} ergibt sich ein Ausgangswert von 1 für den Fall das $\sum_j w_{j}\times x_{j}> Schwellenwert$.
+Wird der Schwellenwert \textit{s} überstiegen, gibt das Perzeptron die eins zurück anderen Falls die null. Abbildung \ref{fig:perceptronNumbered} soll die Funktionsweise des Perzeptrons nochmals mit Hilfe von Beispiel-Werten veranschaulichen. Aus der Abbildung kann der Schwellenwert $s=6$ entnommen werden und mittels der Inputvariablen und Gewichten errechnet sich $\sum_j w_{j}\times x_{j}\text{ = 8}$. Da $\text{8}>\text{6}$ wird der Schwellenwert überstiegen und das Perzeptron liefert die eins zurück (vgl. Formel \ref{formula:perceptroneformula}). 
 
 \begin{figure}[ht]
 \centering
@@ -161,7 +161,7 @@ Abbildung \ref{fig:perceptronNumbered} soll die Funktionsweise des Perzeptrons n
 \label{fig:perceptronNumbered}
 \end{figure}
 
-Neben dem Perzeptron gibt es noch weitere künstliche Neuronen, wie z.B. das Sigmoid Neuron, das einen nummerischen Ausgabewert anstatt eines binären Wertes zurückliefert. Zum Verständnis von neuronalen Netzen, ist die Betrachtung des Perzeptrons an dieser Stelle allerdings genügend. Mit einem einzigen künstlichen Neuron ist es jedoch nicht möglich, komplexere Sachverhalte abzubilden. Erst die Kombination vieler künstlicher Neuronen bilden ein neuronales Netz. Üblicherweise besteht ein künstliches neuronales Netz aus einer Eingabeschicht (\emph{Input-Layer}), einer versteckten Schicht (\emph{Hidden-Layer}) und der Ausgabeschicht (\emph{Output-Layer}). Abbildung \ref{fig:multilayerNN} soll diesen Sachverhalt verdeutlichen. 
+Neben dem Perzeptron gibt es noch weitere künstliche Neuronen, wie z.B. das Sigmoid-Neuron. Zum Verständnis von neuronalen Netzen, ist die Betrachtung des Perzeptrons an dieser Stelle allerdings genügend. Mit einem einzigen künstlichen Neuron ist es jedoch nicht möglich, komplexere Sachverhalte abzubilden. Dies wird erst durch die Kombination vieler künstlicher Neuronen möglich. Üblicherweise besteht ein künstliches neuronales Netz aus einer Eingabe-Schicht (\emph{Input-Layer}), einer Versteckten-Schicht (\emph{Hidden-Layer}) und der Ausgabe-Schicht (\emph{Output-Layer}) \cite [vgl. S. 291]{WE16}. Abbildung \ref{fig:multilayerNN} soll diesen Sachverhalt verdeutlichen. 
 
 \begin{figure}[ht]
 \centering
@@ -172,15 +172,7 @@ Neben dem Perzeptron gibt es noch weitere künstliche Neuronen, wie z.B. das Sig
 
 Dabei ist die Anzahl der Neuronen in der Hidden-Layer variabel, wohingegen die Input-Layer so viele Neuronen wie Inputvariablen besitzt. Die Anzahl der Neuronen in der Output-Layer ergibt sich durch die Anzahl der insgesamt zu berechnenden Werte des neuronalen Netzes. Soll beispielsweise ein neuronales Netz zur Erkennung von Ziffern in Bildern entwickelt werden, gäbe es zehn Neuronen in der Output-Layer, wobei jedes Neuron eine Ziffer aus dem Bereich null bis neun repräsentiert.    
 
-Durch das Variieren der Gewichte und der Schwellenwerte, ergeben sich Modelle mit denen verschiedene Entscheidungsprozesse abgebildet werden können. Um ein Modell zu entwickeln muss das neuronale Netz lernen (trainiert werden). Im Kontext von neuronalen Netzen versteht man unter Lernen, die Modifikation der Gewichte beziehungsweise der Schwellenwerte. Zur Modifikation dieser Parameter, werden Lern-Algorithmen wie Backpropagation verwendet. Der Backpropagation-Algorithmus wird für Supervised-Learning Problemstellungen verwendet \cite [vgl. S. 89] {EA16}, indem iterativ Datensätze durch das Neuronale-Netz gegeben werden, so dass anhand der Abweichung zwischen berechnetem und tatsächlichem Wert, die Gewichte upgedatet werden.         
-
-
-
-Lernalgorithmus (nicht im Detail ...)
-Ein Netz lernt hauptsächlich durch Modifikation der Gewichte der Neuronen.
-
-
-
+Durch das Variieren der Gewichte und der Schwellenwerte, ergeben sich Modelle mit denen verschiedene Entscheidungsprozesse abgebildet werden können. Um ein Modell zu entwickeln muss das neuronale Netz lernen (trainiert werden). Im Kontext von neuronalen Netzen versteht man unter Lernen, die Modifikation der Gewichte \cite {WE16}. Zur Modifikation dieser Parameter, werden Lern-Algorithmen wie der \textit{Backpropagation-Algorithmus} verwendet. Der Backpropagation-Algorithmus wird für Supervised-Learning Problemstellungen verwendet \cite [vgl. S. 89] {EA16}, indem iterativ Datensätze durch das Neuronale-Netz gegeben werden, so dass aus Basis der Abweichung zwischen berechnetem und tatsächlichem Wert (Fehler-Funktion), die Gewichte dahingehend aktualisiert werden das die Fehler-Funktion kleiner wird.           
 
 
 ..................................................................
@@ -218,3 +210,41 @@ Ein Netz lernt hauptsächlich durch Modifikation der Gewichte der Neuronen.
 - Deeplearning4j
 - Appache Spark
 
+Die nachfolgende Rechnung soll das Gewicht-Update mit dem Backpropagation-Algorithmus erklären. Abbildung \ref{fig:perceptronNumberedSigmoid} zeigt ein beispielhaftes neuronales Netz mit Sigmoid-Neuronen. Ein Sigmoid-Neuron ist ein modifiziertes Perzeptron, dessen Ausgabewert jeden Wert zwischen null und eins annehmen kann. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics{images/perceptronNumberedSigmoid.pdf}
+\caption{Neuronalesnetz mit Sigmoid-Neuronen und Bias.}
+\label{fig:perceptronNumberedSigmoid}
+\end{figure}
+
+Das Neuronalenetz besitzt zwei Inputvariablen $x_{1}$ und $x_{2}$, zwei Outputvariablen  $o_{1}$ und $o_{2}$ und zwei Biase $b_{1}$ und $b_{2}$. Die Gewichte $w_{n}$ können den Kanten entnommen werden. Des weiteren enthält die Zeichnung den ersten Lerndatensatz. Für $x_{1} = 0,05$ und $x_{2} = 0,1$ sollen die Werte $o_{1} = 0,01$ und $o_{2} = 0,99$ vorhergesagt werden. Da das Gewicht-Update aus Basis der Fehlerrate geschieht, muss diese zuerst berechnet werden.
+
+\begin{enumerate*}
+\item Der erste Schritt beinhaltet das Berechnen der Fehlerrate mittels der Squared-Error-Funktion (siehe Formel \ref{formula:sqaurederror}). 
+\begin{align}
+\label{formula:sqaurederror}
+E_{total} \text{ = } \sum\frac{1}{2}\textit{(target-output)}^2 
+\end{align}
+
+Dazu muss der Output $o_{1}$ für den gegeben Lerndatensatz berechnet werden, indem wir den Output des Neurons $h_{1}$ berechnen: 
+
+
+$net_{h1} = w_{1} *  x_{1} + w_{2} * x_{2} + b_{1} * 1$
+\\ \\
+$net_{h1} = 0.15 *  0.05 + 0.2 * 0.1 + 0.35 * 1 = 0.3775$
+\\ \\
+Einsetzen von $net_{h1} = 0,3775$ in die Sigmoid-Funktion:
+\\ \\
+$out_{h1} = \frac{1}{1 + e^{-net_{h1}}} = \frac{1}{1 + e^{-0.3775}} = 0,593269992$ 
+
+Wiederholen wir den selben Schritt für $h_{2}$ 
+
+
+\item 
+\begin{align}
+\label{formula:chainrule}
+\frac{\partial E_{total}}{\partial w} = \frac{\partial E_{total}}{\partial out} * \frac{\partial out}{\partial net} * \frac{\partial net}{\partial w}
+\end{align}
+\end{enumerate*} 
