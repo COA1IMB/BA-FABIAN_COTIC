@@ -79,7 +79,7 @@ Eine entsprechende Überwachungsumgebung müsste all diese Daten sammeln und auf
 \section{Machine Learning}
 \label{sec:Machine_Learning2}
 
-\emph{Machine Learning} (ML) ist eines der zentralen Themengebiete innerhalb der  \emph{Künstlichen Intelligenz} (KI) \cite[vgl. S. 2082]{JW12} und beschreibt das Forschungsgebiet das Computer befähigt zu lernen, ohne explizit dafür programmiert worden zu sein \cite[vgl. S. 1]{AM14}. Lernen im Kontext von ML definieren Mitchell et al. als: ''A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E'' \cite{MT97}. Soll beispielsweise ein Programm implementiert werden, das aufgrund vergangener Banktransaktionen (Experience E) lernen soll wie man betrügerische Banktransaktionen erkennt (Task T), wird das Programm, nach erfolgreichem Lernen, besser darin sein betrügerische Banktransaktionen zu erkennen (Performance P). Der Zusammenhang zwischen Ursache und Wirkung soll mit Hilfe eines Modells beschrieben werden. Das Modell soll aus den Erfahrungen der Vergangenheit auf Ergebnisse in der Zukunft schließen können. Dabei wird versucht Eingabe- auf Ausgabewerte abzubilden, so dass die Differenz zwischen dem vorhergesagt Wert und dem realen Wert möglichst klein ist \cite[vgl. S. 68]{EM17}. Abbildung \ref{fig:lernprozess} veranschaulicht den Lernvorgang.   
+\emph{Machine Learning} (ML) ist eines der zentralen Themengebiete innerhalb der  \emph{Künstlichen Intelligenz} (KI) \cite[vgl. S. 2082]{JW12} und beschreibt das Forschungsgebiet das Computer befähigt zu lernen, ohne explizit dafür programmiert worden zu sein \cite[vgl. S. 1]{AM14}. Lernen im Kontext von ML definieren Mitchell et al. als: ''A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E'' \cite{MT97}. Soll beispielsweise ein Programm implementiert werden, das aufgrund vergangener Banktransaktionen (Experience E) lernen soll, wie man betrügerische Banktransaktionen erkennt (Task T), wird das Programm, nach erfolgreichem Lernen, besser darin sein betrügerische Banktransaktionen zu erkennen (Performance P). Der Zusammenhang zwischen Ursache und Wirkung soll mit Hilfe eines Modells beschrieben werden. Das Modell soll aus den Erfahrungen der Vergangenheit auf Ergebnisse in der Zukunft schließen können. Dabei wird versucht Eingabe- auf Ausgabewerte abzubilden, so dass die Differenz zwischen dem vorhergesagten Wert und dem realen Wert möglichst klein ist \cite[vgl. S. 68]{EM17}. Abbildung \ref{fig:lernprozess} veranschaulicht den Lernvorgang.   
 
 \begin{figure}[ht]
 \centering
@@ -88,7 +88,7 @@ Eine entsprechende Überwachungsumgebung müsste all diese Daten sammeln und auf
 \label{fig:lernprozess}
 \end{figure}  
 
-Die Banktransaktionen die die Trainingsdaten bilden, besitzen verschiedene Attribute die im Kontext von ML \emph{Features} genannt werden. Neben den Attributen die die Banktransaktion beschreiben, besitzen die Trainingsdatensätze ein \emph{Label}. Das Label bildet die Erfahrung aus der gelernt werden soll. Im vorliegenden Beispiel wäre das Label ein boolescher Wert, der angibt ob die vorliegende Banktransaktion betrügerisch war oder nicht. Tabelle \ref{tab:trainingset} zeigt den beispielhaften Aufbau der Trainingsdaten.
+Die Banktransaktionen, die die Trainingsdaten bilden, besitzen verschiedene Attribute, die im Kontext von ML \emph{Features} (Eingabedaten wie Alter, Geschlecht etc.) genannt werden. Neben den Attributen, die die Banktransaktion beschreiben, besitzen die Trainingsdatensätze ein \emph{Label}. Das Label bildet die Erfahrung aus der gelernt werden soll. Im vorliegenden Beispiel wäre das Label ein boolescher Wert, der angibt, ob die vorliegende Banktransaktion betrügerisch war oder nicht. Tabelle \ref{tab:trainingset} zeigt den beispielhaften Aufbau der Trainingsdaten.
 
 \begin{table}[ht]
 \centering
@@ -105,13 +105,13 @@ Die Banktransaktionen die die Trainingsdaten bilden, besitzen verschiedene Attri
 \label{tab:trainingset}
 \end{table}
 
-Abhängig von der zugrundeliegenden Problemstellung, gibt es mehrere Verfahren zur Modellbildung. Zur Auswahl eines geeigneten Lern-Algorithmus, muss die Problemstellung und die vorhandenen Daten validiert und einem der folgenden Verfahren zugeordnet werden:  
+Abhängig von der zugrundeliegenden Problemstellung gibt es mehrere Verfahren zur Modellbildung. Zur Auswahl eines geeigneten Lern-Algorithmus, muss die Problemstellung und die vorhandenen Daten validiert und einem der folgenden Verfahren zugeordnet werden:  
 
 \begin{itemize*}
 \item \emph{Supervised-Learning}: Die Lerndatensätze bestehen aus Features und Labels. Das Modell wird trainiert, in dem man ihm vorgibt, wie Klassen richtig zugeordnet oder Werte richtig berechnet werden \cite[vgl. S. 68]{EM17}. 
-\item \emph{Unsupervised-Learning}: Die Lerndatensätze besitzen keine Labels. Der Lern-Algorithmus versucht nur anhand der Features Strukturen abzuleiten, wodurch dann das Modell gebildet wird \cite[]{SG17, EM17}. 
+\item \emph{Unsupervised-Learning}: Die Lerndatensätze besitzen keine Labels. Der Lern-Algorithmus versucht nur anhand der Inputvariablen Strukturen abzuleiten, wodurch dann das Modell gebildet wird \cite[]{SG17, EM17}. 
 \item \emph{Semi-Supervised-Learning}: Eine Mischform zwischen Supervised-Learning und Unsupervised-Learning, wobei manche Trainingsdatensätze Labels besitzen können und andere nicht \cite[vgl. S. 892]{ZH10}. 
-\item \emph{Reinforcement-Learning}: Das Reinforcement-Learning basiert darauf das ein Agent lernt wie er sich in einer bestimmten Umgebung verhalten soll, in dem er eine Belohnung beziehungsweise eine Strafe in Form eines Skalars bekommt, der angibt wie gut oder schlecht sich der Agent verhalten hat \cite[vgl. S. 5]{WO12}.  
+\item \emph{Reinforcement-Learning}: Das Reinforcement-Learning basiert darauf, dass ein Agent lernt, wie er sich in einer bestimmten Umgebung verhalten soll, in dem er eine Belohnung beziehungsweise eine Strafe in Form eines Skalars bekommt, der angibt wie gut oder schlecht sich der Agent verhalten hat \cite[vgl. S. 5]{WO12}.  
 \end{itemize*}    
 
 Über die Lernverfahren hinaus, müssen auch die zu berechnenden Ergebnisse der Problemstellung klassifiziert werden, um einen geeigneten Algorithmus zu finden:
@@ -123,20 +123,20 @@ Abhängig von der zugrundeliegenden Problemstellung, gibt es mehrere Verfahren z
 \item Beispiel 1: Katzenfotos sollen von Hundefotos unterschieden werden.
 \item Beispiel 2: Auf MRT-Bildern von Lungen soll erkannt werden, ob ein Tumor bös- oder gutartig ist.
 \end{itemize*}
-\item \emph{Regression}: Bestimmung eines numerischen Wertes für einen gegebenen EIngabedatensatz \cite {SG17}.   
+\item \emph{Regression}: Bestimmung eines numerischen Wertes für einen gegebenen Eingabedatensatz \cite {SG17}.   
 \begin{itemize*}
 \item Beispiel 1: Preisberechnung eines Gebrauchtwaagens.  
 \item Beispiel 2: Vorhersage der verbleibenden Lebensdauer eines Motors.
 \end{itemize*}
 \item \emph{Clustering}: Beschreibt das Gruppieren von Objekten in verschiedene Gruppen. Die Datensätze einer einzelnen Untergruppe sind sich sehr ähnlich in ihren Eigenschaften, wobei die Datensätze der verschiedenen Untergruppen sehr unterschiedlich in ihren Eigenschaften sind \cite {SG17}.   
 \begin{itemize*}
-\item Beispiel 1: Smartphone Fotoalben die Gesichter analysieren und Fotos nach Personen gruppieren.  
+\item Beispiel 1: Smartphone Fotoalben, die Gesichter analysieren und Fotos nach Personen gruppieren.  
 \item Beispiel 2: Analysieren von Kundendaten zur Gruppierung verschiedener Kundenklassen, für gezielte Marketingkampagnen. 
 \end{itemize*}
 
 \end{itemize*}   
 
-Konventionelle Informationssysteme bearbeiten Aufgaben für gewöhnlich schneller als der Mensch. Nicht desto trotz handelt der Mensch in vielen Disziplinen noch ''intelligenter'' als ein Computer, als Beispiel hierfür ist die Gesichts- und Spracherkennung zu nennen. Daher liegt es nahe, dass Forscher sich am menschlichen Gehirn inspirieren lassen beim Versuch intelligente Maschinen zu entwickeln. Die Entwicklung von künstlichen neuronalen Netzen geht zurück in die 40er Jahre, als die notwendigen biologischen und elektrotechnischen Voraussetzungen vorlagen \cite [vgl. S. 1]{HS97}. Grundbaustein der menschlichen Intelligenz bilden Neuronen, die über Ein- und Ausgangsverbindungen (Synapsen) mit bis zu 200000 anderen Neuronen verbunden sein können \cite [vgl. S. 5]{SS97}. Das \textit{Perzeptron} ist ein künstliches Neuron, das in den 60er Jahren entwickelt wurde \cite [vgl. S. 86]{EA16}. Abbildung \ref{fig:perceptron} zeigt ein Perzeptron. 
+Konventionelle Informationssysteme bearbeiten Aufgaben für gewöhnlich schneller als der Mensch. Nicht desto trotz handelt der Mensch in vielen Disziplinen noch ''intelligenter'' als ein Computer, als Beispiel hierfür ist die Gesichts- und Spracherkennung zu nennen. Daher liegt es nahe, dass Forscher sich am menschlichen Gehirn inspirieren lassen beim Versuch intelligente Maschinen zu entwickeln. Die Entwicklung von künstlichen neuronalen Netzen geht zurück in die 40er Jahre, als die notwendigen biologischen und elektrotechnischen Voraussetzungen vorlagen \cite [vgl. S. 1]{HS97}. Grundbaustein der menschlichen Intelligenz bilden Neuronen, die über Ein- und Ausgangsverbindungen (Synapsen) mit bis zu 200000 anderen Neuronen verbunden sein können \cite [vgl. S. 5]{SS97}. Das \textit{Perzeptron} ist ein künstliches Neuron, das in den 60er Jahren zur Mustererkennung entwickelt wurde \cite [vgl. S. 86]{EA16}. Abbildung \ref{fig:perceptron} zeigt ein Perzeptron.  
 
 \begin{figure}[ht]
 \centering
@@ -149,10 +149,10 @@ Das Beispiel-Perzeptron besitzt die Inputvariablen \textit{x1}, \textit{x2}, \te
 
 \begin{align}
 \label{formula:perceptroneformula}
-y = \begin{cases}\text{ }0\text{ }\text{if}\text{ }\sum_j w_{j}\times x_{j}\leq Schwellenwert\\\text{ }1\text{ }\text{if}\text{ }\sum_j w_{j}\times x_{j}> Schwellenwert\end{cases}
+y = \begin{cases}\text{ }0\text{ }\text{if}\text{ }\sum_j w_{j}\times x_{j}\leq s\\\text{ }1\text{ }\text{if}\text{ }\sum_j w_{j}\times x_{j}> s\end{cases}
 \end{align}
 
-Wird der Schwellenwert \textit{s} überstiegen, gibt das Perzeptron die eins zurück anderen Falls die null. Abbildung \ref{fig:perceptronNumbered} soll die Funktionsweise des Perzeptrons nochmals mit Hilfe von Beispiel-Werten veranschaulichen. Aus der Abbildung kann der Schwellenwert $s=6$ entnommen werden und mittels der Inputvariablen und Gewichten errechnet sich $\sum_j w_{j}\times x_{j}\text{ = 8}$. Da $\text{8}>\text{6}$ wird der Schwellenwert überstiegen und das Perzeptron liefert die eins zurück (vgl. Formel \ref{formula:perceptroneformula}). 
+Wird der Schwellenwert \textit{s} überstiegen, gibt das Perzeptron die 1 zurück anderen Falls die 0. Abbildung \ref{fig:perceptronNumbered} soll die Funktionsweise des Perzeptrons nochmals mit Hilfe von Beispiel-Werten veranschaulichen. Aus der Abbildung kann der Schwellenwert $s=6$ entnommen werden und mittels der Inputvariablen und Gewichten errechnet sich $\sum_j w_{j}\times x_{j}\text{ = 8}$. Da $\text{8}>\text{6}$ wird der Schwellenwert überstiegen und das Perzeptron liefert die 1 zurück (vgl. Formel \ref{formula:perceptroneformula}). 
 
 \begin{figure}[ht]
 \centering
@@ -172,7 +172,7 @@ Neben dem Perzeptron gibt es noch weitere künstliche Neuronen, wie z.B. das Sig
 
 Dabei ist die Anzahl der Neuronen in der Hidden-Layer variabel, wohingegen die Input-Layer so viele Neuronen wie Inputvariablen besitzt. Die Anzahl der Neuronen in der Output-Layer ergibt sich durch die Anzahl der insgesamt zu berechnenden Werte des neuronalen Netzes. Soll beispielsweise ein neuronales Netz zur Erkennung von Ziffern in Bildern entwickelt werden, gäbe es zehn Neuronen in der Output-Layer, wobei jedes Neuron eine Ziffer aus dem Bereich null bis neun repräsentiert.    
 
-Durch das Variieren der Gewichte und der Schwellenwerte, ergeben sich Modelle mit denen verschiedene Entscheidungsprozesse abgebildet werden können. Um ein Modell zu entwickeln muss das neuronale Netz lernen (trainiert werden). Im Kontext von neuronalen Netzen versteht man unter Lernen, die Modifikation der Gewichte \cite {WE16}. Zur Modifikation dieser Parameter, werden Lern-Algorithmen wie der \textit{Backpropagation-Algorithmus} verwendet. Der Backpropagation-Algorithmus wird für Supervised-Learning Problemstellungen verwendet \cite [vgl. S. 89] {EA16}, indem iterativ Datensätze durch das Neuronale-Netz gegeben werden, so dass aus Basis der Abweichung zwischen berechnetem und tatsächlichem Wert (Fehler-Funktion), die Gewichte dahingehend aktualisiert werden das die Fehler-Funktion kleiner wird.           
+Durch das Variieren der Gewichte und der Schwellenwerte, ergeben sich Modelle mit denen verschiedene Entscheidungsprozesse abgebildet werden können. Um ein Modell zu entwickeln muss das neuronale Netz lernen (trainiert werden). Im Kontext von neuronalen Netzen versteht man unter Lernen, die Modifikation der Gewichte \cite {WE16}. Zur Modifikation dieser Parameter, werden Lern-Algorithmen wie der \textit{Backpropagation-Algorithmus} verwendet. Der Backpropagation-Algorithmus wird für Supervised-Learning Problemstellungen verwendet \cite [vgl. S. 89] {EA16}, indem iterativ Datensätze durch das Neuronale-Netz gegeben werden, so dass auf Basis der Abweichung zwischen berechnetem und tatsächlichem Wert (Fehler-Funktion), die Gewichte dahingehend aktualisiert werden das die Fehler-Funktion kleiner wird.           
 
 
 ..................................................................
