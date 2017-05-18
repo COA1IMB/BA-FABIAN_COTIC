@@ -11,11 +11,17 @@ Mit dem Prototypen möchte ich anhand von 2 Anwendungsfällen aus dem Finanzbere
 \subsection{Erkennung von Kreditausfällen}
 \label{subsec:Kreditausfallen3}
 
-- Kurze Einordnung des Geschäftszweigs "'Lending"' plus Bedeutung des Themas für den Finanzsektor
+Der zuerst gewählte Anwendungsfall ist das erkennen von Kreditausfällen. Ein Grund hierfür ist, dass viele freiverfügbare Beispieldatensätze im Web zur Verfügung stehen (vgl. \cite[]{KG1, KG2, UIC1}). Desweiteren entsteht diese Arbeit im Umfeld des Finanzsektors und soll somit auch Anwendungsfälle aus diesem Bereich behandeln. Ziel ist es Kreditanträge zu prüfen und die Ausfallwahrscheinlichkeit möglichst genau vorherzusagen. Hierzu müssen geeignete Daten verwendet werden um ein Modell zu erlernen, das die Vorhersagen treffen wird. Nach ausgiebiger Recherche, konnten über ein Webportal der amerikanischen Hypothekenbank Fannie Mae, geeignete anonymisierte Kreditantragsdaten gefunden werden \cite{FM17}. Alle Datensätze entstammen Einfamilien-Immobilien-Dahrlehn. Die Kreditantragsdatensätze sind über Identifikationsnummern mit Performancedatensätzen verbunden, die das Zahlungsverhalten und weitere Informationen monatlich erfassen \cite{FM18}. Zum Download stehen die Acquisition- (Kreditantragsdaten) und die Performance-Datei (Performancedaten) bereit. Der erste Schritt zur Modellbildung ist die Aufbereitung der Lerndaten, diese bestehen aus Features und einem Label (vgl. \ref{sec:Machine_Learning2}).     
+Als Features dienen die Kreditantragsdaten aus der Acquisition-Datei, wobei jeder Kreditantragsdatensatz mehrere Datensätze in der Performance-Datei besitzt. Aus den korrespondierenden Performancedatensätzen, muss für jeden Kreditantragsdatensatz das Label ermittelt werden. Die Kombination aus Features und Label bilden dann den Lerndatensatz. Abbildung \ref{fig:cleansing} soll den Prozess der Lerndatenerzeugung nochmals veranschaulichen.
 
-- Vorstellen des Datenschemas evtl. tabellarisch (Input und Output Data) 
+\begin{figure}[ht]
+\centering
+\includegraphics{images/cleansing.pdf}
+\caption{Vorgehensweise bei der Erstellung des Lerndatensatzes.}
+\label{fig:cleansing}
+\end{figure}  
 
-- Vorstellen des Decision Tables
+Jeder Datensatz aus der Performance-Datei stellt Informationen über Zahlungsverzüge bereit. Das Feature \textit{Current Loan Delinquency Status} beschreibt wie viele Monate der Kunde in Zahlungsverzug ist. Anhand der Identifikationsnummer wird der aktuellste Datensatz herausgesucht. Befindet sich der Kunde in Zahlungsverzug (Current Loan Delinquency Status > 0), wird dem Label der Wert 1 zu gewiesen. Liegt kein Zahlungsverzug vor wird der Wert 0 zu gewiesen. Darüber hinaus kann Current Loan Delinquency Status auch ''X'' annehmen, wenn der Zahlungsverzug unbekannt ist. Betroffenen Datensätze werden nicht zu Lerndatensätzen umgewandelt und werden übersprungen.     
 
 \subsection{Erkennung von Betrugsversuchen bei Banktransaktionen}
 \label{subsec:Banktransaktionen3}
