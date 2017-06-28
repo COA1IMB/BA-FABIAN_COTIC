@@ -15,7 +15,7 @@ Dieses Kapitel beschreibt die grundlegenden Konzepte, die für das weitere Verst
 \label{fig:lifecycle}
 \end{figure}
 
-\textbf{Modellierung}. Zur Modellierung von Entscheidungen wurde 2015 der Standard Decison Model and Notation (DMN) von der Objekt Management Group veröffentlicht \cite[vgl. S. 7 ff.]{OM16}. Rücker nennt die Schaffung eines Notationsstandards für Entscheidungen, der für Fach- und IT-Anwender gleichermaßen verständlich ist, als übergeordnetes Ziel von DMN \cite[vgl. S. 40]{BR16}.  Die offizielle DMN-Spezifikation nennt die Erfüllung der folgenden drei Anforderungen als Ziel von DMN \cite[vgl. S. 18 ff.]{OM16}: 
+\paragraph{Modellierung}. Zur Modellierung von Entscheidungen wurde 2015 der Standard Decison Model and Notation (DMN) von der Objekt Management Group veröffentlicht \cite[vgl. S. 7 ff.]{OM16}. Rücker nennt die Schaffung eines Notationsstandards für Entscheidungen, der für Fach- und IT-Anwender gleichermaßen verständlich ist, als übergeordnetes Ziel von DMN \cite[vgl. S. 40]{BR16}.  Die offizielle DMN-Spezifikation nennt die Erfüllung der folgenden drei Anforderungen als Ziel von DMN \cite[vgl. S. 18 ff.]{OM16}: 
 
 \begin{enumerate*}
 \item Modellierung von Entscheidungen, die von Menschen getroffen werden
@@ -53,10 +53,10 @@ Nun gilt es sich der Entscheidungslogik-Ebene zu widmen, die insbesondere für d
 \label{fig:decisiontable}
 \end{figure} 
 
-\textbf{Ausführung}. Um Decision Models ausführen zu können, müssen diese in einem geeigneten DMN-Tool modelliert werden. Zur vollständigen Automatisierung der Entscheidungen, muss die Entscheidungslogik in der Lage sein, für jeden möglichen Satz von Input-Daten einen
+\paragraph{Ausführung.} Um Decision Models ausführen zu können, müssen diese in einem geeigneten DMN-Tool modelliert werden. Zur vollständigen Automatisierung der Entscheidungen, muss die Entscheidungslogik in der Lage sein, für jeden möglichen Satz von Input-Daten einen
 Entscheidungsausgang bestimmen zu können. Um eine effiziente Ausführung zu ermöglichen wird eine Decision Engine benötigt, die es erlaubt Entscheidungen in einer produktiven Einsatzumgebung auszuführen. ''Eine Decision Engine ist ein Stück Software, das eine zustandslose Schnittstelle bereitstellt, um Entscheidungen auf Basis der in DMN definierten Entscheidungslogik zu fällen'' \cite[S. 41]{BR16}. Nach der Inbetriebnahme der Decision Engine bedürfen die getroffenen Entscheidungen der Überwachung, um sicherzustellen, dass Entscheidungen so getroffen werden, dass deren Konsequenzen bestmöglich zur Erreichung der betriebswirtschaftlichen Ziele beitragen. 
 
-\textbf{Überwachung}. Taylor nennt vier Faktoren, die kontrolliert werden sollen und dazu führen, dass Entscheidungen verbessert werden müssen \cite[vgl. S. 158]{JT11}:
+\paragraph{Überwachung.} Taylor nennt vier Faktoren, die kontrolliert werden sollen und dazu führen, dass Entscheidungen verbessert werden müssen \cite[vgl. S. 158]{JT11}:
 
 \begin{enumerate*}
 \item Änderungen an wirtschaftlichen Zielsetzungen
@@ -74,7 +74,7 @@ Auf die ersten drei Faktoren muss bei deren Eintritt reagiert werden, wohingegen
 
 Eine entsprechende Überwachungsumgebung müsste all diese Daten sammeln und aufbereiten, so dass der komplette Entscheidungsfindungsprozess und die daraus resultierenden Ereignisse im Nachhinein noch nachvollzogen werden können.
 
-\textbf{Optimierung}. Um bestehende Entscheidungen optimieren zu können, bedarf es einer Simulations-Umgebung in der verschiedene Ansätze gegeneinander getestet werden können. Ein mögliches Szenario könnte so aussehen, dass man die Entscheidungslogik im Produktiveinsatz, in einem A/B Test gegen eine neue Entscheidungslogik testet. Testet man fortlaufend parallel verschiedene Ansätze kann man erkennen, welche sich langfristig am effektivsten auf wirtschaftliche Zielsetzungen auswirken \cite[vgl. S. 173]{JT11}. \emph{Predictive Analytics} eignen sich um neue Entscheidungslogiken zu entwickeln. Predictive Analytics bezeichnet \cite[vgl. S. 5]{BG15} das Verwenden von Verfahren aus der Statistik, sowie dem Machine Learning um vorherzusehen, mit welcher Wahrscheinlichkeit ein ungewisses Ereignis eintritt.   
+\paragraph{Optimierung.} Um bestehende Entscheidungen optimieren zu können, bedarf es einer Simulations-Umgebung in der verschiedene Ansätze gegeneinander getestet werden können. Ein mögliches Szenario könnte so aussehen, dass man die Entscheidungslogik im Produktiveinsatz, in einem A/B Test gegen eine neue Entscheidungslogik testet. Testet man fortlaufend parallel verschiedene Ansätze kann man erkennen, welche sich langfristig am effektivsten auf wirtschaftliche Zielsetzungen auswirken \cite[vgl. S. 173]{JT11}. \emph{Predictive Analytics} eignen sich um neue Entscheidungslogiken zu entwickeln. Predictive Analytics bezeichnet \cite[vgl. S. 5]{BG15} das Verwenden von Verfahren aus der Statistik, sowie dem Machine Learning um vorherzusehen, mit welcher Wahrscheinlichkeit ein ungewisses Ereignis eintritt.   
   
 \section{Machine Learning}
 \label{sec:Machine_Learning2}
